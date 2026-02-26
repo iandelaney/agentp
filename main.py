@@ -1,10 +1,8 @@
-from urllib import response
-
-
 def main():
     import os
     from dotenv import load_dotenv
     from google import genai
+    from urllib import response
 
     
     load_dotenv()
