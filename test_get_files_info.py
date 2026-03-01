@@ -13,7 +13,7 @@ def main():
     print(f"  {res.replace('\n', '\n  ')}")
 
     # Test case 3
-    print("Result for '/bin' directory:")
+    print("\nResult for '/bin' directory:")
     res = get_files_info("calculator", "/bin")
     print(f"  {res.replace('\n', '\n  ')}")
 
