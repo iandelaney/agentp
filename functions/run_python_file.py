@@ -1,6 +1,20 @@
 import os
 import subprocess
+import types
 
+schema_run_python_file = types.FunctionDeclaration(
+    name="run_python_file",
+    description="Executes a Python file within a permitted working directory, ensuring the file path is valid and does not escape the working directory. Captures and returns the output or any errors that occur during execution.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "directory": types.Schema(
+                type=types.Type.STRING,
+                description="Directory path to list files from, relative to the working directory (default is the working directory itself)",
+            ),
+        },
+    ),
+)
 
 def run_python_file(working_directory, file_path, args=None):
     """Execute a Python file within a permitted working directory.

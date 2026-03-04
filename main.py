@@ -5,6 +5,7 @@ def main():
     from urllib import response
     import argparse
     from google.genai import types
+    from prompts import system_prompt
 
 
     parser = argparse.ArgumentParser(description="Chatbot")
@@ -20,7 +21,11 @@ def main():
     if api_key is None:
         raise ValueError("GEMINI_API_KEY not found in environment variables.")
     client = genai.Client(api_key=api_key)
-    response = client.models.generate_content(model="gemini-2.5-flash", contents=messages)
+    response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=messages,
+        config=types.GenerateContentConfig(system_instruction=system_prompt),
+)
     if not response.usage_metadata:
         raise RuntimeError("Gemini API response appears to be malformed")
 

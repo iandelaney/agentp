@@ -1,5 +1,20 @@
 def write_file(working_directory, file_path, content):
     import os
+    import types
+
+    schema_write_file = types.FunctionDeclaration(
+    name="write_file",
+    description="Writes content to a specified file relative to the working directory, ensuring the file path is valid and does not escape the working directory",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "directory": types.Schema(
+                type=types.Type.STRING,
+                description="Directory path to list files from, relative to the working directory (default is the working directory itself)",
+            ),
+        },
+    ),
+)
     try:
         # 1. Get the real, full path of our 'safe' zone
         working_dir_abs = os.path.abspath(working_directory)

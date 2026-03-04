@@ -1,6 +1,22 @@
 def get_file_content(working_directory, file_path):
+
     import os
     from config import MAX_CHARS
+    import types
+
+    schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description="Reads the content of a specified file relative to the working directory, with a maximum character limit to prevent excessive output",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "directory": types.Schema(
+                type=types.Type.STRING,
+                description="Directory path to list files from, relative to the working directory (default is the working directory itself)",
+            ),
+        },
+    ),
+)
 
     try:
         # 1. Get the real, full path of our 'safe' zone
