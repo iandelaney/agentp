@@ -16,8 +16,6 @@ schema_write_file = types.FunctionDeclaration(
 
 def write_file(working_directory, file_path, content):
     import os
-    import types
-
 
     try:
         # 1. Get the real, full path of our 'safe' zone
