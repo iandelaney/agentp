@@ -1,3 +1,5 @@
+from google.genai import types
+
 schema_write_file = types.FunctionDeclaration(
     name="write_file",
     description="Writes content to a specified file relative to the working directory, ensuring the file path is valid and does not escape the working directory",
