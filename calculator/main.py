@@ -2,7 +2,7 @@
 
 import sys
 from pkg.calculator import Calculator
-from pkg.render import format_json_output
+from pkg.render import format_output
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
     try:
         result = calculator.evaluate(expression)
         if result is not None:
-            to_print = format_json_output(expression, result)
+            to_print = format_output(expression, result)
             print(to_print)
         else:
             print("Error: Expression is empty or contains only whitespace.")
